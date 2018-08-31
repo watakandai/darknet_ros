@@ -81,7 +81,6 @@ def main(args):
 
     point_sub   = rospy.Subscriber('camera/depth_registered/points', PointCloud2, point_callback)
     bbox_sub    = rospy.Subscriber('darknet_ros/bounding_boxes', BoundingBoxes, bbox_callback)
-    # depth_pub   = rospy.Publisher('darknet_ros/object_depth',   LIST, queue_size=1)
 
     freq = 30
     rate = rospy.Rate(freq)
@@ -93,9 +92,3 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Output Depth of an Target Object')
     args = parser.parse_args()
     main(args)
-'''
-        start = int(pc.row_step*center.y + pc.point_step*center.x)
-        end   = start + 4
-        bytes = pc.data[start:end]
-        print(struct.unpack('<f', bytes))
-'''
